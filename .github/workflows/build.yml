@@ -4,12 +4,12 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Build DLL
         run: |
-          cl /LD Ats.cpp /link /DEF:Ats.def /OUT:Ats.dll
+          cl /LD /I. Ats.cpp /link /DEF:Ats.def /OUT:Ats.dll
       - name: Upload DLL
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Ats-Plugin
           path: Ats.dll
