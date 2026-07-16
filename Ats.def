@@ -1,0 +1,18 @@
+LIBRARY "Ats"
+EXPORTS
+    Load
+    Dispose
+    SetVehicleSpec
+    Initialize
+    SetBeaconData
+    Elapse
+    SetPower
+    SetBrake
+    SetReverser
+    KeyDown
+    KeyUp
+    HornBlow
+    DoorOpen
+    DoorClose
+    SetSignal
+    SetUndefine
