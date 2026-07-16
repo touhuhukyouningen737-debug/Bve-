@@ -5,9 +5,16 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      
+      # 1. ここでVisual Studioのビルド環境（MSVC）をセットアップします
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        
+      # 2. セットアップされた環境でコンパイルを実行します
       - name: Build DLL
         run: |
           cl /LD /I. Ats.cpp /link /DEF:Ats.def /OUT:Ats.dll
+          
       - name: Upload DLL
         uses: actions/upload-artifact@v4
         with:
