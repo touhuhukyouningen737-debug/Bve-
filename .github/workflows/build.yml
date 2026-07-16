@@ -1,0 +1,15 @@
+name: Build DLL
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build DLL
+        run: |
+          cl /LD Ats.cpp /link /DEF:Ats.def /OUT:Ats.dll
+      - name: Upload DLL
+        uses: actions/upload-artifact@v3
+        with:
+          name: Ats-Plugin
+          path: Ats.dll
